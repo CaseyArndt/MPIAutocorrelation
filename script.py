@@ -7,5 +7,9 @@ if __name__ == '__main__':
     os.system(cmd)
 
     for c in num_cpus:
-        cmd = f"mpiexec -mca btl self,tcp -np {c} autoc"
+        if c == 64:
+            flag = '--use-hwthread-cpus'
+        else:
+            flag = ''
+        cmd = f"mpiexec -mca btl self,tcp -np {c} autoc {flag}"
         os.system(cmd)
