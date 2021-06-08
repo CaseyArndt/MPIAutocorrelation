@@ -41,7 +41,7 @@
 
 // print debugging messages?
 
-#define DEBUG		true
+#define DEBUG		false
 
 // globals:
 
