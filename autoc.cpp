@@ -149,7 +149,7 @@ main( int argc, char *argv[ ] )
 				continue;
 
 			//MPI_Send( &BigSignal[dst*PPSize], ???, ???, ???, ???, ??? );
-			MPI_SEND( &BigSignal[dst*PPSize], PPSize, MPI_FLOAT, dst, 0, MPI_COMM_WORLD  );
+			MPI_Send( &BigSignal[dst*PPSize], PPSize, MPI_FLOAT, dst, 0, MPI_COMM_WORLD  );
 		}
 	}
 	else
@@ -175,7 +175,7 @@ main( int argc, char *argv[ ] )
 	else
 	{
 		//MPI_Send( PPSums, ???, ???, ???, ???, ??? );
-		MPI_Send( PPSums, PPSize, MPI_FLOAT, BOSS, 1, MPI_COMM_WORLD )
+		MPI_Send( PPSums, PPSize, MPI_FLOAT, BOSS, 1, MPI_COMM_WORLD );
 	}
 
 	// receive the sums and add them into the overall sums:
@@ -189,7 +189,7 @@ main( int argc, char *argv[ ] )
 				continue;
 
 			//MPI_Recv( tmpSums, ???, ???, ???, ???, ???, ??? );
-			MPI_Recv( tmpSums, PPsize, MPI_FLOAT, src, 1, MPI_COMM_WORLD, &status );
+			MPI_Recv( tmpSums, PPSize, MPI_FLOAT, src, 1, MPI_COMM_WORLD, &status );
 			for( int s = 0; s < MAXSHIFTS; s++ )
 				BigSums[s] += tmpSums[s];
 		}
