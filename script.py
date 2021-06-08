@@ -3,7 +3,7 @@ import os
 num_cpus = [1, 2, 4, 8, 16, 32]
 
 if __name__ == '__main__':
-    cmd = "mpic++ -o autoc auto.cpp -lm"
+    cmd = "mpic++ -o autoc autoc.cpp -lm"
     os.system(cmd)
 
     for c in num_cpus:
