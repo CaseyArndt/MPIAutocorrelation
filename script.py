@@ -13,5 +13,5 @@ if __name__ == '__main__':
         else:
             thread_flag = ''
             write_flag = False
-        cmd = f"mpiexec -mca btl self,tcp -np {c} autoc {thread_flag} -DWRITEFILE={write_flag}"
+        cmd = f"mpiexec -mca btl self,tcp -np {c} {thread_flag} autoc -DWRITEFILE={write_flag}"
         os.system(cmd)
