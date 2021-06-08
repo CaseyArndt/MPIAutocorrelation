@@ -1,6 +1,6 @@
 import os
 
-num_cpus = [1, 2, 4, 8, 16, 32]
+num_cpus = [1, 2, 4, 8, 16, 32, 64]
 
 if __name__ == '__main__':
     cmd = "mpic++ -o autoc autoc.cpp -lm"
