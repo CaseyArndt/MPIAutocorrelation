@@ -43,6 +43,11 @@
 
 #define DEBUG		false
 
+// write results to file?
+#ifndef WRITEFILE
+#define WRITEFILE	true
+#endif
+
 // globals:
 
 float * BigSums;		// the overall MAXSHIFTS autocorrelation array
@@ -211,7 +216,7 @@ main( int argc, char *argv[ ] )
 
 	// write the file to be plotted to look for the secret sine wave:
 
-	if( me == BOSS )
+	if( WRITEFILE && me == BOSS )
 	{
 		FILE *fp = fopen( CSVPLOTFILE, "w" );
 		if( fp == NULL )

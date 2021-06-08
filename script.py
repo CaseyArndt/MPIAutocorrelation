@@ -8,8 +8,10 @@ if __name__ == '__main__':
 
     for c in num_cpus:
         if c == 64:
-            flag = '--use-hwthread-cpus'
+            thread_flag = '--use-hwthread-cpus'
+            write_flag = True
         else:
-            flag = ''
-        cmd = f"mpiexec -mca btl self,tcp -np {c} autoc {flag}"
+            thread_flag = ''
+            write_flag = False
+        cmd = f"mpiexec -mca btl self,tcp -np {c} autoc {thread_flag} -DWRITEFILE={write_flag}"
         os.system(cmd)
