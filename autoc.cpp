@@ -189,7 +189,7 @@ main( int argc, char *argv[ ] )
 				continue;
 
 			//MPI_Recv( tmpSums, ???, ???, ???, ???, ???, ??? );
-			MPI_Recv( tmpSums, PPSize, MPI_FLOAT, src, 1, MPI_COMM_WORLD, &status );
+			MPI_Recv( tmpSums, MAXSHIFTS, MPI_FLOAT, src, 1, MPI_COMM_WORLD, &status );
 			for( int s = 0; s < MAXSHIFTS; s++ )
 				BigSums[s] += tmpSums[s];
 		}
